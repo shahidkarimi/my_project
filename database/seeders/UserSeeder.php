@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -13,15 +14,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        \DB::table('users')->insert([
-            [
-                'firstname' => 'Kim',
-                'lastname' => 'Fiaq'
-            ],
-            [
-                'firstname' => 'John',
-                'lastname' => 'Lenon'
-            ]
-        ]);
+        User::factory()->count(100)->create();
     }
 }
