@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('my-test', function(){
-   $name = "My Test";
-   return View('my-test',['name' => $name]);
+   $users = User::paginate(10);
+   return View('my-test',compact('users'));
 });
