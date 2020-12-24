@@ -18,7 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('my-test', function(){
-   $users = User::paginate(10);
-   return View('my-test',compact('users'));
-});
+
+Route::get('pages/{page?}', function($page=null){
+    if(empty($page)){
+        return redirect('/');
+    }
+    return view("pages.{$page}");
+})->where('page','contact|about');
+
