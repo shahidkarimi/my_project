@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PagesController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +20,5 @@ Route::get('/', function () {
 });
 
 
-Route::get('pages/{page?}', function($page=null){
-    if(empty($page)){
-        return redirect('/');
-    }
-    return view("pages.{$page}");
-})->where('page','contact|about');
+Route::get('pages/{page?}', [PagesController::class, 'loadPage'])->where('page','contact|about');
 
