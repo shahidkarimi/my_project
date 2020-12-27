@@ -10,4 +10,6 @@
     <hr />
 @endforeach
 
+{{$posts->links()}}
+
 @endsection
