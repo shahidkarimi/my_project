@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -22,3 +23,7 @@ Route::get('/', function () {
 
 Route::get('pages/{page?}', [PagesController::class, 'loadPage'])->where('page','contact|about');
 
+Route::group(['prefix' => 'blog'], function(){
+    Route::get('/', [PostController::class, 'index']);
+    Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
+});

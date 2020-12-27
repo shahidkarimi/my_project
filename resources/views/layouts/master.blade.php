@@ -11,6 +11,8 @@
         <a href="/pages/about">About</a>
         |
         <a href="/pages/contact">Contact</a>
+        |
+        <a href="/blog">Blog</a>
     </div>
 
     <div>
