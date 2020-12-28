@@ -25,5 +25,8 @@ Route::get('pages/{page?}', [PagesController::class, 'loadPage'])->where('page',
 
 Route::group(['prefix' => 'blog'], function(){
     Route::get('/', [PostController::class, 'index']);
+    Route::get('/post', [PostController::class, 'showCreateForm'])->name('post.showCreateForm');
+    Route::post('/post', [PostController::class, 'store'])->name('post.store');
     Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
+
 });
